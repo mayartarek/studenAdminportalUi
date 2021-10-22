@@ -1,6 +1,6 @@
 .page_header {
   background: #f1f1f1;
-
+  padding-bottom: 16px;
   h1 {
     padding: 16px 0px;
     margin: 0;
@@ -8,7 +8,10 @@
   table {
     box-shadow: 1px 2px 14px 3px #c4c0c0;
     padding: 5px;
-
+    width: -we5bkit-fill-available;
+    @media screen and(max-width:1024px) {
+      width: 80%;
+    }
     th {
       padding: 11px;
       text-align: left;
@@ -17,6 +20,26 @@
     td {
       padding: 12px;
       border-bottom: 1px solid #c4c0c0;
+    }
+  }
+  .pagination {
+    margin: 19px 0px 19px;
+    justify-content: end;
+    .page-link {
+      color: black;
+    }
+    .page-item.active .page-link {
+      color: black;
+      background-color: #c4c0c0;
+      border-color: #c4c0c0;
+    }
+  }
+  .filter {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-bottom: 19px;
+    .search-input {
     }
   }
 }

@@ -1,5 +1,5 @@
 export interface Address {
   id: string;
-  pysicalAddress: string;
+  physicalAddress: string;
   portalAddress: string;
 }

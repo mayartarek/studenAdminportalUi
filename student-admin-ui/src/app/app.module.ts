@@ -5,17 +5,28 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { LayoutModule } from './layout/layout.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { StudentsModule } from './pages/students/students.module';
+
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StudentsModule,
-    LayoutModule,
+    LoadingBarModule,
     NgbModule,
+    FormsModule,
+    LayoutModule,
+    StudentsModule,
+    LoadingBarModule,
+    NgbToastModule,
     HttpClientModule,
+    NgbToastModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

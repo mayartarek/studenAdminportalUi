@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from 'src/app/models/api_models/student';
-import { StudentsService } from 'src/app/services/students.service';
+import { OrderByPipe } from 'src/app/CustomPipes/order-by.pipe';
+import { StudentsService } from 'src/app/shared/services/students.service';
+import { Student } from '../models/student';
 
 @Component({
   selector: 'app-students',
@@ -9,6 +10,7 @@ import { StudentsService } from 'src/app/services/students.service';
 export class StudentsComponent implements OnInit {
   constructor(private studentservice: StudentsService) {}
   Students: Student[];
+  filterArray: Student[];
   displayColumns: string[] = [
     'First Name',
     'Last Name',
@@ -17,11 +19,15 @@ export class StudentsComponent implements OnInit {
     'Mobile',
     'Gender',
   ];
+  page = 1;
+  filterString: string;
+  id?: number;
+  pageSize = 9;
 
   ngOnInit(): void {
     this.studentservice.getStudents().subscribe(
       (res) => {
-        this.Students = res;
+        this.Students = this.filterArray = res;
         console.log(this.Students);
       },
       (error) => {

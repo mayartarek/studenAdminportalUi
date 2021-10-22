@@ -3,7 +3,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { Student } from '../models/api_models/student';
+import { Student } from 'src/app/pages/students/models/student';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +13,10 @@ export class StudentsService {
   constructor(private httpClient: HttpClient) {}
   getStudents(): Observable<Student[]> {
     return this.httpClient.get<Student[]>(this.baseUrl + '/Students');
+  }
+  getStudent(studentId: string) {
+    return this.httpClient.get<Student>(
+      this.baseUrl + '/Students/' + studentId
+    );
   }
 }
